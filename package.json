@@ -1,0 +1,7 @@
+{
+    "name": "mediai",
+    "private": true,
+    "scripts": {
+        "build": "bash ./vercel-build.sh"
+    }
+}
