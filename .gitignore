@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+.DS_Store
+build-template/src/frontend/node_modules/
+build-template/src/frontend/dist/

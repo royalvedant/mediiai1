@@ -1,0 +1,262 @@
+{
+  "kind": "build_request",
+  "title": "Implement Motoko backend with all MediAI features and connect frontend UI",
+  "projectName": "MediAI",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "Implement the Motoko backend actor in backend/main.mo with data models and stable storage for: User accounts (principal-based identity), Prescription records (id, userId, extractedText, analysisResult, timestamp), MedicalReport records (id, userId, content, analysisResult, timestamp), MedicationReminder records (id, userId, medicineName, dosage, reminderTime, isActive), and HospitalRecommendation logs (id, userId, location, results, timestamp).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Prescription Upload (OCR)",
+          "✅ Smart Reminders",
+          "✅ Hospital Recommendation",
+          "✅ Authentication"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Stable variables are declared for all entities so data persists across upgrades",
+        "User records are keyed by Internet Identity principal",
+        "CRUD operations exist for prescriptions, reports, reminders, and hospital logs",
+        "All functions compile without errors in Motoko"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add Motoko backend query and update functions for prescription management: savePrescription(userId: Text, rawText: Text, analysisResult: Text) : async Text, getPrescriptions(userId: Text) : async [Prescription], getPrescriptionById(id: Text) : async ?Prescription, and deletePrescription(id: Text) : async Bool.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Prescription Upload (OCR)",
+          "✅ Medical Report Analysis"
+        ]
+      },
+      "acceptanceCriteria": [
+        "savePrescription stores a new record and returns the generated ID",
+        "getPrescriptions returns all prescriptions for the given userId",
+        "getPrescriptionById returns the record or null if not found",
+        "deletePrescription removes the record and returns true on success"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Add Motoko backend functions for medication reminders: addReminder(userId: Text, medicineName: Text, dosage: Text, reminderTime: Int) : async Text, getReminders(userId: Text) : async [Reminder], updateReminderStatus(id: Text, isActive: Bool) : async Bool, and deleteReminder(id: Text) : async Bool.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Smart Reminders",
+          "✅ Follow-up Monitoring"
+        ]
+      },
+      "acceptanceCriteria": [
+        "addReminder creates and persists a new reminder record and returns its ID",
+        "getReminders returns all reminders belonging to userId",
+        "updateReminderStatus toggles the isActive field",
+        "deleteReminder removes the record and returns true"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add Motoko backend functions for drug interaction data: saveDrugInteractionResult(userId: Text, medications: [Text], interactionSummary: Text) : async Text and getDrugInteractionHistory(userId: Text) : async [DrugInteractionRecord].",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Drug Interaction Detection"
+        ]
+      },
+      "acceptanceCriteria": [
+        "saveDrugInteractionResult stores medications list and summary, returns record ID",
+        "getDrugInteractionHistory returns all past drug interaction checks for userId"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Add Motoko backend functions for diet recommendations: saveDietRecommendation(userId: Text, medications: [Text], dietPlan: Text) : async Text and getDietHistory(userId: Text) : async [DietRecord].",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Diet Recommendation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "saveDietRecommendation stores the medication list and generated diet plan text, returns record ID",
+        "getDietHistory returns all diet recommendation records for userId"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Add Motoko backend functions for hospital recommendation logs: saveHospitalSearch(userId: Text, location: Text, results: Text) : async Text and getHospitalHistory(userId: Text) : async [HospitalRecord]. Also add medicine price comparison log functions: savePriceComparison(userId: Text, medicineName: Text, links: Text) : async Text and getPriceHistory(userId: Text) : async [PriceRecord].",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Hospital Recommendation",
+          "✅ Medicine Price Comparison"
+        ]
+      },
+      "acceptanceCriteria": [
+        "saveHospitalSearch persists the location and result summary and returns a record ID",
+        "getHospitalHistory returns all past searches for userId",
+        "savePriceComparison stores medicine name and pharmacy link data",
+        "getPriceHistory returns all price comparison records for userId"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Update the frontend useQueries.ts hook (without modifying immutable paths) by creating a new file frontend/src/hooks/useMediAIQueries.ts that exposes React Query hooks wired to the Motoko backend actor for: usePrescriptions(userId), useSavePrescription(), useReminders(userId), useAddReminder(), useDrugInteractions(userId), useDietHistory(userId), useHospitalHistory(userId), and usePriceHistory(userId).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Prescription Upload (OCR)",
+          "✅ Smart Reminders",
+          "✅ Hospital Recommendation",
+          "✅ Medicine Price Comparison"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All hooks use useActor() to get the backend actor",
+        "Mutation hooks call the appropriate backend update functions and invalidate relevant query caches on success",
+        "Query hooks correctly type-return arrays of their respective record types",
+        "No modifications are made to immutable paths"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Create a frontend/src/components/Dashboard.tsx page component that acts as a logged-in user dashboard. It should display four tabbed sections: 'My Prescriptions' (list of saved prescriptions with analysis results), 'My Reminders' (active medication reminders with toggle and delete), 'Drug Interactions' (history of checked drug combinations), and 'Diet Plans' (saved diet recommendations). Use the glassmorphism card style and neon glow consistent with the rest of the site. Wire each tab to the corresponding useMediAIQueries hooks.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Prescription Upload (OCR)",
+          "✅ Smart Reminders",
+          "✅ Drug Interaction Detection",
+          "✅ Diet Recommendation",
+          "Admin Dashboard APIs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard renders a tab bar with four tabs: My Prescriptions, My Reminders, Drug Interactions, Diet Plans",
+        "Each tab fetches and displays real data from the Motoko backend via the query hooks",
+        "Reminders tab allows toggling isActive status and deleting reminders",
+        "Empty states display a friendly neon-styled 'No records yet' message",
+        "Component uses glassmorphism card styling consistent with the existing site theme"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Create a frontend/src/components/MedicineComparison.tsx component that displays medicine price comparison results. Accept a medicine name as input (text field with neon glow styling), show three pharmacy platform links on submit: 1mg (https://www.1mg.com/search/all?name={medicine}), PharmEasy (https://pharmeasy.in/search/all?name={medicine}), Netmeds (https://www.netmeds.com/catalogsearch/result?q={medicine}). Each result card should display the pharmacy logo name, a neon-styled 'View Price' button that opens the link in a new tab, and save the comparison to backend via useSavePriceComparison mutation. Embed this component in a new 'Tools' section in App.tsx between the Features section and the ProposedMethod section.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Medicine Price Comparison",
+          "tata1mg: `https://www.1mg.com/search/all?name=${medicine}`",
+          "pharmeasy: `https://pharmeasy.in/search/all?name=${medicine}`",
+          "netmeds: `https://www.netmeds.com/catalogsearch/result?q=${medicine}`"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Input field accepts a medicine name and triggers comparison on submit or Enter key",
+        "Three pharmacy cards appear with correct URLs using the entered medicine name",
+        "Each 'View Price' button opens the correct URL in a new browser tab",
+        "Comparison result is saved to backend if user is authenticated",
+        "Component uses neon/glassmorphism styling matching the rest of the site"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Create a frontend/src/components/DrugInteractionChecker.tsx component with a multi-input field (add up to 5 medicines) and a 'Check Interactions' button. On submit, display a simulated warning panel styled with amber/red neon glow showing placeholder interaction warnings between the entered drugs. Save the check to backend via useSaveDrugInteraction mutation. Embed this component within the Dashboard or as a standalone Tools sub-section.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Drug Interaction Detection",
+          "Drug Check\tFDA API"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can add between 2 and 5 medicine names as separate inputs",
+        "Clicking 'Check Interactions' triggers a simulated loading state then displays interaction warnings",
+        "Warning panel uses amber/red neon glow to indicate severity",
+        "Result is persisted to backend via the drug interaction mutation hook if user is authenticated",
+        "Component is accessible and keyboard-navigable"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Add a 'Dashboard' navigation link to the existing Navbar component (frontend/src/components/Navbar.tsx) that only appears when a user is authenticated via Internet Identity. Clicking it smoothly scrolls to or routes to the Dashboard section. Also add a visible Internet Identity login/logout button in the navbar, showing the user's short principal ID when logged in.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "✅ Authentication",
+          "Admin Dashboard APIs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard nav link is hidden when no user is authenticated",
+        "Dashboard nav link appears and is clickable when authenticated",
+        "Login button triggers Internet Identity login flow",
+        "Logout button clears session and hides the Dashboard link",
+        "Logged-in state shows a truncated principal ID (first 5 + last 3 chars) with neon styling"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files listed in frontend.immutablePaths",
+    "All backend logic must remain in a single Motoko actor in backend/main.mo",
+    "The external Node.js/Express backend described by the user is for reference only; implement equivalent functionality in Motoko within the ICP single-actor architecture",
+    "No external database, Redis, or Docker integration — use Motoko stable variables for persistence",
+    "No OpenAI/LLM API calls from the backend — AI analysis results are passed in from the frontend and stored by the backend",
+    "Do not use JWT authentication — use Internet Identity principal as the user identifier"
+  ],
+  "nonGoals": [
+    "Implementing a Node.js, Express, or any non-Motoko backend",
+    "PostgreSQL, Redis, Prisma, or any external database integration",
+    "BullMQ or any external job queue for reminders",
+    "AWS S3 file storage integration",
+    "Docker Compose setup",
+    "WhatsApp reminder integration",
+    "Telemedicine integration",
+    "EHR sync",
+    "Payment gateway",
+    "Role-based access control (Doctor/Pharmacist/Patient) in this iteration",
+    "AI Confidence Score feature",
+    "Voice prescription reading",
+    "Real-time WebSocket features"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Futuristic AI-powered healthcare website (MediAI) with Jarvis-style holographic UI and enterprise-grade backend. Frontend: animated neural network background, glassmorphism cards, neon glow effects, sections for Hero, Problem Statement, Motivation, Feature Cards, AI System Flow, Datasets/Validation, and Novelty/Scalability. Backend: Node.js/Express/TypeScript, PostgreSQL, Redis, Prisma ORM, JWT Auth, Tesseract OCR, OpenAI/LLM, LangChain RAG pipeline, BullMQ reminders, Docker-ready, AWS S3 file storage. Supports: Prescription Upload (OCR), Medical Report Analysis, Drug Interaction Detection, Multilingual Explanation, Diet Recommendation, Smart Reminders, Hospital Recommendation, Medicine Price Comparison, Authentication, Admin Dashboard APIs.",
+  "architectural_notes": [
+    "Dark theme: deep navy/midnight black base, electric blue + neon cyan highlights, subtle purple AI glow, soft white text",
+    "Typography: Inter/Satoshi-style modern sans-serif with bold glowing headings",
+    "Animation stack: Framer Motion, GSAP, Three.js (3D neural background), WebGL particles, Lottie icons",
+    "Backend stack: Node.js + Express (TypeScript), PostgreSQL, Redis, Prisma ORM, JWT Auth, Multer, Tesseract OCR, OpenAI/LLM, LangChain RAG, BullMQ, Docker, AWS S3",
+    "API endpoints map: OCR+AI (Upload Prescription), AI+RAG (Analyze Report), LLM (Diet Plan), FDA API (Drug Check), BullMQ (Reminders), Google Places API (Hospital), Pharmacy URL links (Price Compare), LLM translation (Language Toggle)",
+    "Security: Helmet, rate limiting, JWT, input validation, CORS, SQL injection protection, bcrypt password hashing"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-full-page-animated-three-js-neural-network-background-with-floating-particle-nodes-connecting-glowing-lines-heartbeat-pulse-waveforms-and-floating-medicine-icon-sprites-the-background-should-use-deep-dark-navy-020817-and-midnight-black-base-with-electric-blue-00d4ff-and-neon-cyan-00fff0-particle-colors-and-subtle-purple-7c3aed-glow-nodes-animate-continuously-and-respond-subtly-to-mouse-cursor-movement",
+      "title": "Implement a full-page animated Three.js neural network background with floating particle nodes, connecting glowing lines, heartbeat pulse waveforms, and floating medicine icon sprites. The background should use deep dark navy (#020817) and midnight black base with electric blue (#00d4ff) and neon cyan (#00fff0) particle colors and subtle purple (#7c3aed) glow nodes. Animate continuously and respond subtly to mouse/cursor movement.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-hero-section-with-the-heading-ai-powered-prescription-medical-report-interpreter-subheading-transforming-complex-medical-language-into-clear-actionable-insights-and-three-animated-glow-cta-buttons-upload-prescription-analyze-medical-report-and-try-demo-style-with-bold-glowing-typography-animated-gradient-button-borders-and-a-fade-in-entrance-animation-on-load",
+      "title": "Build the Hero section with the heading 'AI-Powered Prescription & Medical Report Interpreter', subheading 'Transforming Complex Medical Language into Clear, Actionable Insights.', and three animated glow CTA buttons: 'Upload Prescription', 'Analyze Medical Report', and 'Try Demo'. Style with bold glowing typography, animated gradient button borders, and a fade-in entrance animation on load.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-problem-statement-section-as-animated-glassmorphism-panels-display-the-text-in-the-current-healthcare-landscape-especially-in-india-there-is-a-critical-communication-gap-between-clinical-documentation-and-patient-comprehension-show-three-animated-glowing-bullet-points-low-health-literacy-medication-errors-high-anxiety-add-a-highlighted-stat-1-5-million-preventable-adverse-events-annually-with-a-subtle-red-radial-pulse-animation-behind-it-panels-should-float-and-lift-on-hover",
+      "title": "Build the Problem Statement section as animated glassmorphism panels. Display the text: 'In the current healthcare landscape, especially in India, there is a critical communication gap between clinical documentation and patient comprehension.' Show three animated glowing bullet points: Low Health Literacy, Medication Errors, High Anxiety. Add a highlighted stat '1.5 million preventable adverse events annually' with a subtle red radial pulse animation behind it. Panels should float and lift on hover.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-motivation-section-with-a-split-layout-left-side-an-animated-ai-brain-hologram-visualization-using-three-js-or-css-svg-animation-glowing-neural-mesh-sphere-right-side-text-our-ai-bridges-the-gap-between-doctors-and-patients-using-intelligent-prescription-analysis-multilingual-explanations-and-verified-medical-data-below-the-text-add-three-animated-floating-stat-counter-cards-that-count-up-on-scroll-98-extraction-accuracy-4-regional-languages-real-time-drug-interaction-alerts",
+      "title": "Build the Motivation section with a split layout. Left side: an animated AI brain hologram visualization using Three.js or CSS/SVG animation (glowing neural mesh sphere). Right side: text 'Our AI bridges the gap between doctors and patients using intelligent prescription analysis, multilingual explanations, and verified medical data.' Below the text, add three animated floating stat counter cards that count up on scroll: '98% Extraction Accuracy', '4+ Regional Languages', 'Real-time Drug Interaction Alerts'.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-application-features-section-with-6-glowing-animated-glass-cards-in-a-responsive-grid-cards-1-prescription-report-analysis-extracts-dosage-duration-side-effects-and-explains-in-simple-language-2-dietary-guidance-personalized-food-recommendations-during-medication-3-smart-reminders-ai-powered-medication-alerts-and-follow-up-reminders-4-hospital-recommendation-suggests-nearest-reputed-hospitals-based-on-diagnosis-5-medicine-price-comparison-compares-verified-pharmacy-platforms-6-multilingual-support-marathi-hindi-malayalam-english-toggle-with-animated-language-switch-each-card-has-a-matching-icon-on-hover-card-lifts-with-3d-tilt-neon-glow-border-intensifies-smooth-scale-animation",
+      "title": "Build the Application/Features section with 6 glowing animated glass cards in a responsive grid. Cards: (1) Prescription & Report Analysis – 'Extracts dosage, duration, side effects, and explains in simple language.' (2) Dietary Guidance – 'Personalized food recommendations during medication.' (3) Smart Reminders – 'AI-powered medication alerts and follow-up reminders.' (4) Hospital Recommendation – 'Suggests nearest reputed hospitals based on diagnosis.' (5) Medicine Price Comparison – 'Compares verified pharmacy platforms.' (6) Multilingual Support – 'Marathi, Hindi, Malayalam, English toggle with animated language switch.' Each card has a matching icon. On hover: card lifts with 3D tilt, neon glow border intensifies, smooth scale animation.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-proposed-method-section-as-an-animated-horizontal-flow-diagram-visualizing-ocr-medical-nlp-rag-pipeline-drug-interaction-check-simplified-explanation-each-step-is-a-glowing-glass-node-connecting-lines-between-nodes-animate-with-moving-light-particles-traveling-left-to-right-continuously-the-entire-diagram-should-fade-in-on-scroll",
+      "title": "Build the Proposed Method section as an animated horizontal flow diagram visualizing: OCR → Medical NLP → RAG Pipeline → Drug Interaction Check → Simplified Explanation. Each step is a glowing glass node. Connecting lines between nodes animate with moving light particles traveling left to right continuously. The entire diagram should fade in on scroll.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-datasets-validation-section-as-an-animated-dashboard-ui-display-four-animated-metric-bars-charts-for-precision-recall-f1-score-and-user-comprehension-metrics-charts-should-use-neon-colored-progress-bars-or-radial-gauges-with-glowing-effects-all-animations-trigger-when-the-section-scrolls-into-view-bars-fill-from-0-to-their-value-use-realistic-placeholder-values-e-g-precision-94-recall-91-f1-score-92-user-comprehension-87",
+      "title": "Build the Datasets & Validation section as an animated dashboard UI. Display four animated metric bars/charts for: Precision, Recall, F1 Score, and User Comprehension Metrics. Charts should use neon-colored progress bars or radial gauges with glowing effects. All animations trigger when the section scrolls into view (bars fill from 0 to their value). Use realistic placeholder values (e.g., Precision 94%, Recall 91%, F1 Score 92%, User Comprehension 87%).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-novelty-scalability-section-featuring-a-rotating-holographic-network-visualization-show-5-integration-nodes-arranged-in-a-circular-orbital-pattern-hospital-integration-pharmacy-software-mobile-app-ehr-systems-telemedicine-a-central-mediai-hub-connects-to-all-nodes-with-animated-glowing-lines-the-network-rotates-slowly-implement-using-three-js-or-css-3d-transforms",
+      "title": "Build the Novelty & Scalability section featuring a rotating holographic network visualization. Show 5 integration nodes arranged in a circular/orbital pattern: Hospital Integration, Pharmacy Software, Mobile App, EHR Systems, Telemedicine. A central 'MediAI' hub connects to all nodes with animated glowing lines. The network rotates slowly. Implement using Three.js or CSS 3D transforms.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-custom-cursor-light-trail-effect-the-cursor-should-leave-a-brief-glowing-cyan-blue-trail-of-fading-particles-as-it-moves-across-the-page",
+      "title": "Implement a custom cursor light trail effect. The cursor should leave a brief glowing cyan/blue trail of fading particles as it moves across the page.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-floating-ai-chat-assistant-orb-button-fixed-to-the-bottom-right-corner-of-the-page-the-orb-should-pulse-with-a-soft-neon-glow-animation-cyan-blue-rings-clicking-it-opens-a-small-glassmorphism-chat-panel-above-it-with-a-mediai-assistant-header-and-a-placeholder-input-field-include-a-live-typing-indicator-animation-three-bouncing-dots-to-simulate-an-ai-response",
+      "title": "Add a floating AI Chat Assistant orb button fixed to the bottom-right corner of the page. The orb should pulse with a soft neon glow animation (cyan/blue rings). Clicking it opens a small glassmorphism chat panel above it with a 'MediAI Assistant' header and a placeholder input field. Include a live typing indicator animation (three bouncing dots) to simulate an AI response.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-drag-and-drop-prescription-uploader-component-in-the-hero-section-below-cta-buttons-the-drop-zone-should-have-a-glassmorphism-border-with-dashed-neon-outline-on-file-hover-drop-trigger-a-scanning-animation-animated-horizontal-scan-line-sweeping-over-the-drop-zone-and-display-a-fake-progress-bar-with-text-analyzing-prescription-followed-by-analysis-complete",
+      "title": "Add a drag-and-drop prescription uploader component in the Hero section (below CTA buttons). The drop zone should have a glassmorphism border with dashed neon outline. On file hover/drop, trigger a scanning animation (animated horizontal scan line sweeping over the drop zone) and display a fake progress bar with text 'Analyzing prescription...' followed by 'Analysis complete'.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-sticky-futuristic-navigation-bar-at-the-top-of-the-page-include-the-logo-mediai-with-a-neon-glow-effect-navigation-links-to-each-section-home-problem-features-method-validation-scalability-and-a-dark-light-futuristic-mode-toggle-button-the-navbar-should-use-glassmorphism-styling-with-backdrop-blur-on-scroll-the-navbar-should-gain-increased-opacity-and-shadow",
+      "title": "Add a sticky futuristic navigation bar at the top of the page. Include the logo 'MediAI' with a neon glow effect, navigation links to each section (Home, Problem, Features, Method, Validation, Scalability), and a dark/light futuristic mode toggle button. The navbar should use glassmorphism styling with backdrop blur. On scroll, the navbar should gain increased opacity and shadow.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-global-scroll-triggered-animations-site-wide-using-intersection-observer-all-sections-should-fade-in-and-slide-up-when-they-enter-the-viewport-add-staggered-entrance-animations-for-grid-items-feature-cards-stat-counters-implement-smooth-page-level-scroll-behavior",
+      "title": "Apply global scroll-triggered animations site-wide using Intersection Observer. All sections should fade in and slide up when they enter the viewport. Add staggered entrance animations for grid items (feature cards, stat counters). Implement smooth page-level scroll behavior.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-frontend-usequeries-ts-hook-without-modifying-immutable-paths-by-creating-a-new-file-frontend-src-hooks-usemediaiqueries-ts-that-exposes-react-query-hooks-wired-to-the-motoko-backend-actor-for-useprescriptions-userid-usesaveprescription-usereminders-userid-useaddreminder-usedruginteractions-userid-usediethistory-userid-usehospitalhistory-userid-and-usepricehistory-userid",
+      "title": "Update the frontend useQueries.ts hook (without modifying immutable paths) by creating a new file frontend/src/hooks/useMediAIQueries.ts that exposes React Query hooks wired to the Motoko backend actor for: usePrescriptions(userId), useSavePrescription(), useReminders(userId), useAddReminder(), useDrugInteractions(userId), useDietHistory(userId), useHospitalHistory(userId), and usePriceHistory(userId).",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-src-components-dashboard-tsx-page-component-that-acts-as-a-logged-in-user-dashboard-it-should-display-four-tabbed-sections-my-prescriptions-list-of-saved-prescriptions-with-analysis-results-my-reminders-active-medication-reminders-with-toggle-and-delete-drug-interactions-history-of-checked-drug-combinations-and-diet-plans-saved-diet-recommendations-use-the-glassmorphism-card-style-and-neon-glow-consistent-with-the-rest-of-the-site-wire-each-tab-to-the-corresponding-usemediaiqueries-hooks",
+      "title": "Create a frontend/src/components/Dashboard.tsx page component that acts as a logged-in user dashboard. It should display four tabbed sections: 'My Prescriptions' (list of saved prescriptions with analysis results), 'My Reminders' (active medication reminders with toggle and delete), 'Drug Interactions' (history of checked drug combinations), and 'Diet Plans' (saved diet recommendations). Use the glassmorphism card style and neon glow consistent with the rest of the site. Wire each tab to the corresponding useMediAIQueries hooks.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-src-components-medicinecomparison-tsx-component-that-displays-medicine-price-comparison-results-accept-a-medicine-name-as-input-text-field-with-neon-glow-styling-show-three-pharmacy-platform-links-on-submit-1mg-https-www-1mg-com-search-all-name-medicine-pharmeasy-https-pharmeasy-in-search-all-name-medicine-netmeds-https-www-netmeds-com-catalogsearch-result-q-medicine-each-result-card-should-display-the-pharmacy-logo-name-a-neon-styled-view-price-button-that-opens-the-link-in-a-new-tab-and-save-the-comparison-to-backend-via-usesavepricecomparison-mutation-embed-this-component-in-a-new-tools-section-in-app-tsx-between-the-features-section-and-the-proposedmethod-section",
+      "title": "Create a frontend/src/components/MedicineComparison.tsx component that displays medicine price comparison results. Accept a medicine name as input (text field with neon glow styling), show three pharmacy platform links on submit: 1mg (https://www.1mg.com/search/all?name={medicine}), PharmEasy (https://pharmeasy.in/search/all?name={medicine}), Netmeds (https://www.netmeds.com/catalogsearch/result?q={medicine}). Each result card should display the pharmacy logo name, a neon-styled 'View Price' button that opens the link in a new tab, and save the comparison to backend via useSavePriceComparison mutation. Embed this component in a new 'Tools' section in App.tsx between the Features section and the ProposedMethod section.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-src-components-druginteractionchecker-tsx-component-with-a-multi-input-field-add-up-to-5-medicines-and-a-check-interactions-button-on-submit-display-a-simulated-warning-panel-styled-with-amber-red-neon-glow-showing-placeholder-interaction-warnings-between-the-entered-drugs-save-the-check-to-backend-via-usesavedruginteraction-mutation-embed-this-component-within-the-dashboard-or-as-a-standalone-tools-sub-section",
+      "title": "Create a frontend/src/components/DrugInteractionChecker.tsx component with a multi-input field (add up to 5 medicines) and a 'Check Interactions' button. On submit, display a simulated warning panel styled with amber/red neon glow showing placeholder interaction warnings between the entered drugs. Save the check to backend via useSaveDrugInteraction mutation. Embed this component within the Dashboard or as a standalone Tools sub-section.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dashboard-navigation-link-to-the-existing-navbar-component-frontend-src-components-navbar-tsx-that-only-appears-when-a-user-is-authenticated-via-internet-identity-clicking-it-smoothly-scrolls-to-or-routes-to-the-dashboard-section-also-add-a-visible-internet-identity-login-logout-button-in-the-navbar-showing-the-user-s-short-principal-id-when-logged-in",
+      "title": "Add a 'Dashboard' navigation link to the existing Navbar component (frontend/src/components/Navbar.tsx) that only appears when a user is authenticated via Internet Identity. Clicking it smoothly scrolls to or routes to the Dashboard section. Also add a visible Internet Identity login/logout button in the navbar, showing the user's short principal ID when logged in.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Hero section with animated neural network background, pulse waveform, floating medicine icons, and CTA buttons (Upload Prescription, Analyze Medical Report, Try Demo)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Problem Statement section with glassmorphism panels, animated bullet glow, and red pulse animation for '1.5 million preventable adverse events'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Motivation section with split layout, animated AI brain hologram, and floating stat counters (98% accuracy, 4+ languages, drug interaction alerts)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Feature cards section with 6 glowing glass cards: Prescription Analysis, Dietary Guidance, Smart Reminders, Hospital Recommendation, Medicine Price Comparison, Multilingual Support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Animated AI system flow diagram: OCR → Medical NLP → RAG Pipeline → Drug Interaction Check → Simplified Explanation with glowing particle connectors",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Datasets & Validation section with animated dashboard charts (Precision, Recall, F1 Score, User Comprehension) that animate on scroll",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Novelty & Scalability section with rotating holographic network visualization showing Hospital, Pharmacy, Mobile, EHR, and Telemedicine integrations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Premium UI effects: glassmorphism, neon glow on hover, 3D card tilt, cursor light trail, AI voice orb animation, scroll-triggered animations, animated gradient buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "AI Chat Assistant floating button, drag-and-drop prescription uploader with scanning animation, live typing AI explanation effect, dark/light futuristic toggle",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Enterprise backend integration: Node.js/Express/TypeScript API server with PostgreSQL, Redis, Prisma ORM, JWT auth, Multer file uploads, Tesseract OCR, OpenAI LLM, LangChain RAG pipeline, BullMQ reminder jobs, Docker Compose setup",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Next-level unicorn features: Voice Prescription Reading, WhatsApp Reminder Integration, Telemedicine Integration, EHR Sync, Payment Gateway, Admin Analytics Dashboard, Role-based Access (Doctor/Pharmacist/Patient), AI Confidence Score",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement the Motoko backend actor in backend/main.mo with data models and stable storage for: User accounts (principal-based identity), Prescription records (id, userId, extractedText, analysisResult, timestamp), MedicalReport records (id, userId, content, analysisResult, timestamp), MedicationReminder records (id, userId, medicineName, dosage, reminderTime, isActive), and HospitalRecommendation logs (id, userId, location, results, timestamp).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add Motoko backend query and update functions for prescription management: savePrescription(userId: Text, rawText: Text, analysisResult: Text) : async Text, getPrescriptions(userId: Text) : async [Prescription], getPrescriptionById(id: Text) : async ?Prescription, and deletePrescription(id: Text) : async Bool.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add Motoko backend functions for medication reminders: addReminder(userId: Text, medicineName: Text, dosage: Text, reminderTime: Int) : async Text, getReminders(userId: Text) : async [Reminder], updateReminderStatus(id: Text, isActive: Bool) : async Bool, and deleteReminder(id: Text) : async Bool.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add Motoko backend functions for drug interaction data: saveDrugInteractionResult(userId: Text, medications: [Text], interactionSummary: Text) : async Text and getDrugInteractionHistory(userId: Text) : async [DrugInteractionRecord].",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Add Motoko backend functions for diet recommendations: saveDietRecommendation(userId: Text, medications: [Text], dietPlan: Text) : async Text and getDietHistory(userId: Text) : async [DietRecord].",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add Motoko backend functions for hospital recommendation logs: saveHospitalSearch(userId: Text, location: Text, results: Text) : async Text and getHospitalHistory(userId: Text) : async [HospitalRecord]. Also add medicine price comparison log functions: savePriceComparison(userId: Text, medicineName: Text, links: Text) : async Text and getPriceHistory(userId: Text) : async [PriceRecord].",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "MediAI",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

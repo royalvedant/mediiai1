@@ -1,0 +1,105 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-frontend-usequeries-ts-hook-without-modifying-immutable-paths-by-creating-a-new-file-frontend-src-hooks-usemediaiqueries-ts-that-exposes-react-query-hooks-wired-to-the-motoko-backend-actor-for-useprescriptions-userid-usesaveprescription-usereminders-userid-useaddreminder-usedruginteractions-userid-usediethistory-userid-usehospitalhistory-userid-and-usepricehistory-userid",
+      "featureTitle": "Update the frontend useQueries.ts hook (without modifying immutable paths) by creating a new file frontend/src/hooks/useMediAIQueries.ts that exposes React Query hooks wired to the Motoko backend actor for: usePrescriptions(userId), useSavePrescription(), useReminders(userId), useAddReminder(), useDrugInteractions(userId), useDietHistory(userId), useHospitalHistory(userId), and usePriceHistory(userId).",
+      "files": [
+        "frontend/src/hooks/useMediAIQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-frontend-src-components-dashboard-tsx-page-component-that-acts-as-a-logged-in-user-dashboard-it-should-display-four-tabbed-sections-my-prescriptions-list-of-saved-prescriptions-with-analysis-results-my-reminders-active-medication-reminders-with-toggle-and-delete-drug-interactions-history-of-checked-drug-combinations-and-diet-plans-saved-diet-recommendations-use-the-glassmorphism-card-style-and-neon-glow-consistent-with-the-rest-of-the-site-wire-each-tab-to-the-corresponding-usemediaiqueries-hooks",
+      "featureTitle": "Create a frontend/src/components/Dashboard.tsx page component that acts as a logged-in user dashboard. It should display four tabbed sections: 'My Prescriptions' (list of saved prescriptions with analysis results), 'My Reminders' (active medication reminders with toggle and delete), 'Drug Interactions' (history of checked drug combinations), and 'Diet Plans' (saved diet recommendations). Use the glassmorphism card style and neon glow consistent with the rest of the site. Wire each tab to the corresponding useMediAIQueries hooks.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-frontend-src-components-medicinecomparison-tsx-component-that-displays-medicine-price-comparison-results-accept-a-medicine-name-as-input-text-field-with-neon-glow-styling-show-three-pharmacy-platform-links-on-submit-1mg-https-www-1mg-com-search-all-name-medicine-pharmeasy-https-pharmeasy-in-search-all-name-medicine-netmeds-https-www-netmeds-com-catalogsearch-result-q-medicine-each-result-card-should-display-the-pharmacy-logo-name-a-neon-styled-view-price-button-that-opens-the-link-in-a-new-tab-and-save-the-comparison-to-backend-via-usesavepricecomparison-mutation-embed-this-component-in-a-new-tools-section-in-app-tsx-between-the-features-section-and-the-proposedmethod-section",
+      "featureTitle": "Create a frontend/src/components/MedicineComparison.tsx component that displays medicine price comparison results. Accept a medicine name as input (text field with neon glow styling), show three pharmacy platform links on submit: 1mg (https://www.1mg.com/search/all?name={medicine}), PharmEasy (https://pharmeasy.in/search/all?name={medicine}), Netmeds (https://www.netmeds.com/catalogsearch/result?q={medicine}). Each result card should display the pharmacy logo name, a neon-styled 'View Price' button that opens the link in a new tab, and save the comparison to backend via useSavePriceComparison mutation. Embed this component in a new 'Tools' section in App.tsx between the Features section and the ProposedMethod section.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/MedicineComparison.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-frontend-src-components-druginteractionchecker-tsx-component-with-a-multi-input-field-add-up-to-5-medicines-and-a-check-interactions-button-on-submit-display-a-simulated-warning-panel-styled-with-amber-red-neon-glow-showing-placeholder-interaction-warnings-between-the-entered-drugs-save-the-check-to-backend-via-usesavedruginteraction-mutation-embed-this-component-within-the-dashboard-or-as-a-standalone-tools-sub-section",
+      "featureTitle": "Create a frontend/src/components/DrugInteractionChecker.tsx component with a multi-input field (add up to 5 medicines) and a 'Check Interactions' button. On submit, display a simulated warning panel styled with amber/red neon glow showing placeholder interaction warnings between the entered drugs. Save the check to backend via useSaveDrugInteraction mutation. Embed this component within the Dashboard or as a standalone Tools sub-section.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DrugInteractionChecker.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-dashboard-navigation-link-to-the-existing-navbar-component-frontend-src-components-navbar-tsx-that-only-appears-when-a-user-is-authenticated-via-internet-identity-clicking-it-smoothly-scrolls-to-or-routes-to-the-dashboard-section-also-add-a-visible-internet-identity-login-logout-button-in-the-navbar-showing-the-user-s-short-principal-id-when-logged-in",
+      "featureTitle": "Add a 'Dashboard' navigation link to the existing Navbar component (frontend/src/components/Navbar.tsx) that only appears when a user is authenticated via Internet Identity. Clicking it smoothly scrolls to or routes to the Dashboard section. Also add a visible Internet Identity login/logout button in the navbar, showing the user's short principal ID when logged in.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/components/ProfileSetup.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

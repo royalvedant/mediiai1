@@ -1,0 +1,121 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "MediAI Frontend Integration with Motoko Backend",
+  "requirements": [
+    {
+      "id": "REQ-20",
+      "summary": "Create React Query hooks for all MediAI backend capabilities including prescriptions, reminders, drug interactions, diet history, hospital searches, and price comparisons",
+      "acceptanceCriteria": [
+        "All hooks use useActor() to get the backend actor",
+        "Mutation hooks call the appropriate backend update functions and invalidate relevant query caches on success",
+        "Query hooks correctly type-return arrays of their respective record types",
+        "No modifications are made to immutable paths"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useMediAIQueries.ts",
+          "operation": "create",
+          "description": "Create a comprehensive set of React Query hooks wired to the Motoko backend actor. Include query hooks: usePrescriptions(userId), useReminders(userId), useDrugInteractions(userId), useDietHistory(userId), useHospitalHistory(userId), usePriceHistory(userId), usePrescriptionById(id). Include mutation hooks: useSavePrescription(), useDeletePrescription(), useAddReminder(), useUpdateReminderStatus(), useDeleteReminder(), useSaveDrugInteraction(), useSaveDietRecommendation(), useSaveHospitalSearch(), useSavePriceComparison(). Each mutation hook must invalidate the appropriate query cache on success. Use the backend interface types from frontend/src/backend.d.ts for type safety."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Create an authenticated user dashboard with tabbed sections for prescriptions, reminders, drug interactions, and diet plans",
+      "acceptanceCriteria": [
+        "Dashboard renders a tab bar with four tabs: My Prescriptions, My Reminders, Drug Interactions, Diet Plans",
+        "Each tab fetches and displays real data from the Motoko backend via the query hooks",
+        "Reminders tab allows toggling isActive status and deleting reminders",
+        "Empty states display a friendly neon-styled 'No records yet' message",
+        "Component uses glassmorphism card styling consistent with the existing site theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create a comprehensive dashboard component that serves as the main authenticated user interface. Use a tabbed layout with four sections: 'My Prescriptions' (display prescription cards showing extractedText, analysisResult, and timestamp with delete action), 'My Reminders' (display reminder cards with medicineName, dosage, reminderTime, and toggle/delete controls), 'Drug Interactions' (display history cards showing medications list and interactionSummary), 'Diet Plans' (display diet recommendation cards showing dietPlan text). Wire each tab to the corresponding useMediAIQueries hooks. Apply glassmorphism card styling with backdrop-blur-xl, neon borders, and consistent dark theme colors matching the existing site. Include loading states, error handling, and friendly empty states with neon glow. Use the authorization component's useInternetIdentity hook to get the current user's principal for queries. Guard the entire component with authentication check and show a login prompt if not authenticated."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a Dashboard section to the main App component. Import the Dashboard component and add it as a new section between the Features section and the ProposedMethod section. Wrap the Dashboard in a section element with appropriate spacing and background styling consistent with other sections. Add an id='dashboard' attribute for navigation linking."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Create medicine price comparison component that displays pharmacy links and saves results to backend",
+      "acceptanceCriteria": [
+        "Input field accepts a medicine name and triggers comparison on submit or Enter key",
+        "Three pharmacy cards appear with correct URLs using the entered medicine name",
+        "Each 'View Price' button opens the correct URL in a new browser tab",
+        "Comparison result is saved to backend if user is authenticated",
+        "Component uses neon/glassmorphism styling matching the rest of the site"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MedicineComparison.tsx",
+          "operation": "create",
+          "description": "Create a medicine price comparison component with a neon-styled text input field for medicine name entry. On submit (button click or Enter key), generate three pharmacy result cards: 1mg (https://www.1mg.com/search/all?name={medicine}), PharmEasy (https://pharmeasy.in/search/all?name={medicine}), Netmeds (https://www.netmeds.com/catalogsearch/result?q={medicine}). Each card displays the pharmacy name as a heading and a neon-styled 'View Price' button that opens the URL in a new tab (_blank). After displaying results, call useSavePriceComparison mutation to persist the search to backend with the medicine name and a JSON string of the three links. Apply glassmorphism card styling with neon glow borders matching the site theme. Include loading states and error handling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new 'Tools' section between the Features section and the ProposedMethod section. Import and embed the MedicineComparison component within this new Tools section. Use a section element with id='tools', appropriate heading ('MediAI Tools'), and consistent dark background styling. Position the MedicineComparison component within a centered container with proper spacing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Create drug interaction checker component with multi-input field and simulated warning panel",
+      "acceptanceCriteria": [
+        "User can add between 2 and 5 medicine names as separate inputs",
+        "Clicking 'Check Interactions' triggers a simulated loading state then displays interaction warnings",
+        "Warning panel uses amber/red neon glow to indicate severity",
+        "Result is persisted to backend via the drug interaction mutation hook if user is authenticated",
+        "Component is accessible and keyboard-navigable"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DrugInteractionChecker.tsx",
+          "operation": "create",
+          "description": "Create a drug interaction checker component with dynamic input fields. Allow users to add up to 5 medicine name inputs using an 'Add Medicine' button (minimum 2 required). Include a 'Check Interactions' button that triggers a simulated loading state (1-2 seconds) then displays a warning panel. The warning panel should show simulated interaction warnings with amber/red neon glow styling based on severity (use amber-400 for moderate warnings, red-500 for severe). Generate placeholder warnings like 'Interaction detected between [Medicine A] and [Medicine B]: May increase drowsiness' for demonstration purposes. After displaying results, call useSaveDrugInteraction mutation to save the check to backend with the medications array and a summary of warnings. Apply glassmorphism styling with appropriate neon effects. Ensure keyboard navigation and accessibility (tab order, Enter to submit, aria-labels)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add the DrugInteractionChecker component to the Tools section created for REQ-22. Import and place it below the MedicineComparison component within the same Tools section container. Add appropriate spacing between the two tool components using margin utilities."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Add authenticated dashboard navigation link and Internet Identity login/logout controls to navbar",
+      "acceptanceCriteria": [
+        "Dashboard nav link is hidden when no user is authenticated",
+        "Dashboard nav link appears and is clickable when authenticated",
+        "Login button triggers Internet Identity login flow",
+        "Logout button clears session and hides the Dashboard link",
+        "Logged-in state shows a truncated principal ID (first 5 + last 3 chars) with neon styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Enhance the Navbar component to support authentication state and dashboard navigation. Import useInternetIdentity and useQueryClient from their respective hooks. Add a conditional 'Dashboard' navigation link that only appears when identity is present (isAuthenticated). The Dashboard link should use smooth scroll to #dashboard or navigate to the Dashboard section. Add an Internet Identity login/logout button that shows 'Login' when not authenticated and displays a truncated principal ID (first 5 chars + '...' + last 3 chars) with a 'Logout' action when authenticated. Style the login/logout control with neon glow effects matching the site theme. On logout, call queryClient.clear() to clear all cached data. Ensure the auth controls are visible in both desktop and mobile menu states. Position the auth controls after the theme toggle in the navbar."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetup.tsx",
+          "operation": "create",
+          "description": "Create a ProfileSetup modal component that appears when a user logs in for the first time (when getCallerUserProfile returns null). Use the authorization component's guidance to fetch the user profile on login and display a modal form if no profile exists. The modal should request the user's name and email, styled with glassmorphism and neon effects matching the site theme. Include a 'Save Profile' button that calls saveCallerUserProfile mutation with the entered data. Use proper loading states to prevent the modal from flashing (check actorFetching and query isFetched states). Display a backdrop overlay to prevent interaction with the app until the profile is set up. Handle validation (require name, optional email with format check). Close the modal automatically after successful profile save and refetch the user profile."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the ProfileSetup component at the top level of the App component (outside the main content sections). The ProfileSetup modal should overlay the entire app and will only render when needed based on its internal authentication and profile checks. Position it after the QueryClientProvider and InternetIdentityProvider wrappers ensure it has access to both contexts."
+        }
+      ]
+    }
+  ]
+}

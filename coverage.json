@@ -1,0 +1,150 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T07:10:18.900Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 11,
+    "implemented": 5,
+    "items": [
+      {
+        "id": "REQ-14",
+        "summary": "Implement the Motoko backend actor in backend/main.mo with data models and stable storage for: User accounts (principal-based identity), Prescription records (id, userId, extractedText, analysisResult, timestamp), MedicalReport records (id, userId, content, analysisResult, timestamp), MedicationReminder records (id, userId, medicineName, dosage, reminderTime, isActive), and HospitalRecommendation logs (id, userId, location, results, timestamp).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Add Motoko backend query and update functions for prescription management: savePrescription(userId: Text, rawText: Text, analysisResult: Text) : async Text, getPrescriptions(userId: Text) : async [Prescription], getPrescriptionById(id: Text) : async ?Prescription, and deletePrescription(id: Text) : async Bool.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Add Motoko backend functions for medication reminders: addReminder(userId: Text, medicineName: Text, dosage: Text, reminderTime: Int) : async Text, getReminders(userId: Text) : async [Reminder], updateReminderStatus(id: Text, isActive: Bool) : async Bool, and deleteReminder(id: Text) : async Bool.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Add Motoko backend functions for drug interaction data: saveDrugInteractionResult(userId: Text, medications: [Text], interactionSummary: Text) : async Text and getDrugInteractionHistory(userId: Text) : async [DrugInteractionRecord].",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Add Motoko backend functions for diet recommendations: saveDietRecommendation(userId: Text, medications: [Text], dietPlan: Text) : async Text and getDietHistory(userId: Text) : async [DietRecord].",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Add Motoko backend functions for hospital recommendation logs: saveHospitalSearch(userId: Text, location: Text, results: Text) : async Text and getHospitalHistory(userId: Text) : async [HospitalRecord]. Also add medicine price comparison log functions: savePriceComparison(userId: Text, medicineName: Text, links: Text) : async Text and getPriceHistory(userId: Text) : async [PriceRecord].",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Update the frontend useQueries.ts hook (without modifying immutable paths) by creating a new file frontend/src/hooks/useMediAIQueries.ts that exposes React Query hooks wired to the Motoko backend actor for: usePrescriptions(userId), useSavePrescription(), useReminders(userId), useAddReminder(), useDrugInteractions(userId), useDietHistory(userId), useHospitalHistory(userId), and usePriceHistory(userId).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useMediAIQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useMediAIQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Create a frontend/src/components/Dashboard.tsx page component that acts as a logged-in user dashboard. It should display four tabbed sections: 'My Prescriptions' (list of saved prescriptions with analysis results), 'My Reminders' (active medication reminders with toggle and delete), 'Drug Interactions' (history of checked drug combinations), and 'Diet Plans' (saved diet recommendations). Use the glassmorphism card style and neon glow consistent with the rest of the site. Wire each tab to the corresponding useMediAIQueries hooks.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Create a frontend/src/components/MedicineComparison.tsx component that displays medicine price comparison results. Accept a medicine name as input (text field with neon glow styling), show three pharmacy platform links on submit: 1mg (https://www.1mg.com/search/all?name={medicine}), PharmEasy (https://pharmeasy.in/search/all?name={medicine}), Netmeds (https://www.netmeds.com/catalogsearch/result?q={medicine}). Each result card should display the pharmacy logo name, a neon-styled 'View Price' button that opens the link in a new tab, and save the comparison to backend via useSavePriceComparison mutation. Embed this component in a new 'Tools' section in App.tsx between the Features section and the ProposedMethod section.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/MedicineComparison.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/MedicineComparison.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Create a frontend/src/components/DrugInteractionChecker.tsx component with a multi-input field (add up to 5 medicines) and a 'Check Interactions' button. On submit, display a simulated warning panel styled with amber/red neon glow showing placeholder interaction warnings between the entered drugs. Save the check to backend via useSaveDrugInteraction mutation. Embed this component within the Dashboard or as a standalone Tools sub-section.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/DrugInteractionChecker.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/DrugInteractionChecker.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Add a 'Dashboard' navigation link to the existing Navbar component (frontend/src/components/Navbar.tsx) that only appears when a user is authenticated via Internet Identity. Clicking it smoothly scrolls to or routes to the Dashboard section. Also add a visible Internet Identity login/logout button in the navbar, showing the user's short principal ID when logged in.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/components/ProfileSetup.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/components/ProfileSetup.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/Dashboard.tsx",
+    "frontend/src/components/DrugInteractionChecker.tsx",
+    "frontend/src/components/MedicineComparison.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/components/ProfileSetup.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useMediAIQueries.ts",
+    "frontend/src/utils/urlParams.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

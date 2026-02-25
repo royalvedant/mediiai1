@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Root application component that composes all page sections including new Tools (MedicineComparison + DrugInteractionChecker) and Dashboard sections, renders the ProfileSetup modal overlay, and maintains the existing theme/layout structure.",
+  "frontend/src/components/AIChatAssistant.tsx": "Floating AI chat assistant with a pulsing orb button fixed to the bottom-right corner that toggles a glassmorphism chat panel featuring message history, simulated AI typing indicator, and a text input for user queries.",
+  "frontend/src/hooks/useMediAIQueries.ts": "Comprehensive React Query hooks for all MediAI backend operations including user profiles, prescriptions, reminders, drug interactions, diet history, hospital searches, and price comparisons — each with proper cache invalidation on mutations.",
+  "frontend/src/components/Dashboard.tsx": "Authenticated user dashboard with four tabs (My Prescriptions, My Reminders, Drug Interactions, Diet Plans) that fetch real data from the Motoko backend, with glassmorphism styling, loading states, empty states, and delete/toggle actions.",
+  "frontend/src/components/MedicineComparison.tsx": "Medicine price comparison tool with a neon-styled search input that generates pharmacy result cards for 1mg, PharmEasy, and Netmeds with external links, and saves searches to the backend when authenticated.",
+  "frontend/src/components/DrugInteractionChecker.tsx": "Drug interaction checker with dynamic medicine inputs (2–5), simulated interaction analysis with amber/red severity warnings, keyboard navigation support, and backend persistence when authenticated.",
+  "frontend/src/components/ProfileSetup.tsx": "First-login profile setup modal that overlays the entire app, prompts for name and optional email, prevents flash using proper loading state checks, and saves the profile via the backend mutation hook.",
+  "frontend/src/components/Navbar.tsx": "Enhanced navbar with Internet Identity login/logout controls showing truncated principal ID with neon styling, a conditional Dashboard navigation link visible only when authenticated, and mobile menu support for all auth controls."
+}
