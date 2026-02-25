@@ -18,3 +18,8 @@ pnpm install
 
 echo "Building project..."
 npx vite build
+
+echo "Moving build output to root for Vercel..."
+cd ../../../
+rm -rf dist
+mv build-template/src/frontend/dist dist
